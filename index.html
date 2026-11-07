@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Sachi ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9aaf, #ffc3d5, #f7a8d0);
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 420px;
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.85);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(150,0,60,0.2);
+    animation: muncul 1s ease;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #ff4081;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.heart {
+    font-size: 65px;
+    animation: detak 1s infinite;
+}
+
+@keyframes detak {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+p {
+    color: #69404e;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 15px 0;
+}
+
+button {
+    border: none;
+    padding: 13px 25px;
+    margin-top: 15px;
+    border-radius: 30px;
+    background: #ff4081;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #e91e63;
+}
+
+#pesan {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #ffe0eb;
+    border-radius: 15px;
+    color: #d81b60;
+    animation: muncul 0.5s ease;
+}
+
+/* Love berjatuhan */
+.falling {
+    position: absolute;
+    top: -50px;
+    animation: jatuh linear infinite;
+    pointer-events: none;
+}
+
+@keyframes jatuh {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+.footer {
+    font-size: 12px;
+    color: #ad5274;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Hai Sachi!</h1>
+
+    <p>
+        Ada pengumuman penting nih untuk kamu...
+        <br><br>
+        Kamu tahu nggak kenapa aku suka melihat langit?
+        <br>
+        Karena kalau melihat kamu, aku takut
+        <b>silau sama masa depan.</b> 😂
+    </p>
+
+    <p>
+        Tapi tenang, ini bukan surat tagihan,
+        bukan juga undangan rapat.
+        Ini cuma pesan spesial buat kamu! 💕
+    </p>
+
+    <button onclick="kejutan()">
+        Klik untuk kejutan 🎁
+    </button>
+
+    <div id="pesan">
+        <h2>WKWKWK! 😂❤️</h2>
+        <p>
+            Selamat Sachi!
+            Kamu baru saja menjadi korban
+            prank paling romantis hari ini.
+            <br><br>
+            Jangan marah ya!
+            Senyum dong, biar dunia nggak
+            kehilangan salah satu sumber keindahannya. 💗
+        </p>
+    </div>
+
+    <div class="footer">
+        Made with ❤️ khusus untuk Sachi
+    </div>
+
+</div>
+
+<script>
+function kejutan() {
+    const pesan = document.getElementById("pesan");
+    pesan.style.display = "block";
+
+    // Love tambahan saat tombol diklik
+    for (let i = 0; i < 25; i++) {
+        buatLove();
+    }
+}
+
+function buatLove() {
+    const love = document.createElement("div");
+    love.className = "falling";
+
+    const bentuk = ["❤️", "💕", "💗", "💖", "💘"];
+    love.innerHTML = bentuk[
+        Math.floor(Math.random() * bentuk.length)
+    ];
+
+    love.style.left = Math.random() * 100 + "vw";
+    love.style.fontSize = (15 + Math.random() * 25) + "px";
+    love.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+    document.body.appendChild(love);
+
+    setTimeout(() => {
+        love.remove();
+    }, 8000);
+}
+
+// Love otomatis berjatuhan
+setInterval(buatLove, 300);
+</script>
+
+</body>
+</html>
